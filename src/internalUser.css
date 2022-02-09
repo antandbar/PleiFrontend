@@ -1,0 +1,13 @@
+.user-internal {
+  color: whitesmoke;
+  background-color: black;
+  height: 100vh;
+}
+h1 {
+  text-align: center;
+  padding: 5vh;
+}
+
+.user-table {
+  padding: 5vh;
+}
