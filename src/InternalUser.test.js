@@ -2,17 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import InternalUser from './InternalUser';
 import { Tittle, TableUsers } from './InternalUser';
+import Enzyme from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+
+
+Enzyme.configure({ adapter: new Adapter() });
 
 it('renders InternalUser whithout crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<InternalUser />,div);
-  ReactDOM.unmountComponentAtNode(div); 
+  let comp = Enzyme.mount(<InternalUser />);
+  expect(comp.find("h1").at(0).text()).toEqual("Internal User");
 });
 
 it('renders Tittle whithout crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Tittle />,div);
-  ReactDOM.unmountComponentAtNode(div); 
+  let comp = Enzyme.mount(<Tittle />);
+  //console.log(comp.html());
+  expect(comp.exists("h1")).toEqual(true);
 });
 
 it('renders TableUsers whithout crashing', () => {
