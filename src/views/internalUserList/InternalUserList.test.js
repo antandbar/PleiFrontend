@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import InternalUser from './InternalUser';
-import { Tittle, TableUsers } from './InternalUser';
+import InternalUserList from './InternalUserList.js';
+import { layouts } from '../../components/layout';
+import { common } from '../../components/common';
 import Enzyme from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
@@ -9,12 +10,12 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 Enzyme.configure({ adapter: new Adapter() });
 
 it('renders InternalUser whithout crashing', () => {
-  let comp = Enzyme.mount(<InternalUser />);
+  let comp = Enzyme.mount(<InternalUserList />);
   expect(comp.find("h1").at(0).text()).toEqual("Internal User");
 });
 
 it('renders Tittle whithout crashing', () => {
-  let comp = Enzyme.mount(<Tittle />);
+  let comp = Enzyme.mount(<layouts.Tittle />);
   //console.log(comp.html());
   expect(comp.exists("h1")).toEqual(true);
 });
@@ -43,6 +44,6 @@ it('renders TableUsers whithout crashing', () => {
                   }
               }
   ] 
-  ReactDOM.render(<TableUsers users = {users} />,div);
+  ReactDOM.render(<common.TableUsers users = {users} />,div);
   ReactDOM.unmountComponentAtNode(div); 
 });

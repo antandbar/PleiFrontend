@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import InternalUser from './InternalUser';
+import InternalUser from './views/internalUserList/InternalUserList';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Error404 from './Error404';
+import Error404 from './views/error/Error404';
 /* import { Provider } from 'react-redux'; */
+import { constNames } from './const/index.js';
 
 
 ReactDOM.render(
@@ -19,7 +20,8 @@ ReactDOM.render(
       <Router>
         <div>  
           <Switch>
-            <Route path={["/", "/index"]} exact component={InternalUser}/>
+            
+            <Route path={["/", constNames.routeNames.internalUser]} exact component={InternalUser}/>
             <Route component={Error404}/> 
           </Switch>
         </div>  
