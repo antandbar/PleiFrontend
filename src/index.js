@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Error404 from './Error404';
-//import {Provider} from 'react-redux';
+/* import { Provider } from 'react-redux'; */
 
 
 ReactDOM.render(
@@ -15,16 +15,16 @@ ReactDOM.render(
       <Route path="/index" component={InternalUser}/>
         {<InternalUser name="pepe"/> }
     </Routes> */}
-    
-    <Router>
-      <div>  
-        <Switch>
-          <Route path={["/", "/index"]} exact component={InternalUser}/>
-          <Route component={Error404}/> 
-        </Switch>
-      </div>  
-    </Router> 
-    
+    {/* <Provider> */}
+      <Router>
+        <div>  
+          <Switch>
+            <Route path={["/", "/index"]} exact component={InternalUser}/>
+            <Route component={Error404}/> 
+          </Switch>
+        </div>  
+      </Router> 
+    {/* </Provider> */}
   </React.StrictMode>,
   
   document.getElementById('root')
