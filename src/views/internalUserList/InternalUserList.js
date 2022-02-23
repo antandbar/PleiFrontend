@@ -3,35 +3,35 @@ import './internalUserList.css';
 import { layouts } from '../../components/layout';
 import { common } from '../../components/common';
 import { internalUserService } from './InternalUserService';
+import {actions} from '../../stateManagement/store.js';
+import { connect } from 'react-redux';
 
-export default class InternalUserList extends Component {
+export class InternalUserList extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props){
     super(props);
     this.state = {
-      name: this.props.name,
-      users: []
+      //name: this.props.name
     }
   }
 
   async componentDidMount() {
 
     const users = await internalUserService.getUsers();
-    this.setState({users:users.results})
+    this.props.set(users.results);
           
 
   }
 
-  chanceName = (e) => {
+/*   chanceName = (e) => {
     this.setState({name:"manolo"})
-  }
+  } */
 
   render() {
     return (
       <div className='user-internal'>
         <layouts.Tittle title="Internal User"/>
-        <h2>{this.state.name}</h2>
-        <common.TableUsers users={this.state.users}/>
+        <common.TableUsers users={this.props.users}/>
       </div>
       
     );
@@ -39,3 +39,12 @@ export default class InternalUserList extends Component {
   }
 }
 
+const mapState = (state) => {
+  return {users:state.users};
+
+}
+const mapActions = {set:actions.setUsers};
+
+const internalUserList = connect(mapState,mapActions) (InternalUserList);
+
+export default internalUserList;
