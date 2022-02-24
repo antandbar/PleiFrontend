@@ -3,7 +3,7 @@ import './internalUserList.css';
 import { layouts } from '../../components/layout';
 import { common } from '../../components/common';
 import { internalUserService } from './InternalUserService';
-import {actions} from '../../stateManagement/store.js';
+import { actions } from '../../stateManagement/store.js';
 import { connect } from 'react-redux';
 
 export class InternalUserList extends Component {

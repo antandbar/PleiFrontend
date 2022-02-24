@@ -1,10 +1,11 @@
+import { constNames } from '../../const/index.js';
 export class InternalUserService {
     // eslint-disable-next-line no-useless-constructor
     constructor(){}
   
     // Se devulven los usuarios
     async getUsers() {
-      const url = `http://13.38.85.64:8000/internal/api/1.0/user_internal/`
+      const url = constNames.routeNames.internalUserExt;
   
       let usersResponse;
       let users;
