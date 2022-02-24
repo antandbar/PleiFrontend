@@ -1,5 +1,5 @@
-import React, { Component} from 'react';
-import {Table} from 'reactstrap';
+import React, { Component } from 'react';
+import { Table } from 'reactstrap';
 
 export default class TableUsers extends Component {
     render() {
@@ -26,6 +26,9 @@ export default class TableUsers extends Component {
                 <th>
                   Wallet Type
                 </th>
+                <th>
+                  Detail
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -48,6 +51,9 @@ export default class TableUsers extends Component {
                     </td>
                     <td>
                     {JSON.stringify(users.person.t_wallet).replace(/["']/g, "")}
+                    </td>
+                    <td>
+                    <a href={this.props.redirec}>Detalle</a>
                     </td>
                   </tr>)}
             </tbody>

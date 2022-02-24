@@ -1,10 +1,13 @@
-import React, { Component} from 'react';
+import React, { Component, Fragment} from 'react';
+import '../../styles/reset.css';
+import '../../styles/global.css';
 import './internalUserList.css';
 import { layouts } from '../../components/layout';
 import { common } from '../../components/common';
 import { internalUserService } from './InternalUserService';
 import { actions } from '../../stateManagement/store.js';
 import { connect } from 'react-redux';
+import { constNames } from '../../const/index.js';
 
 export class InternalUserList extends Component {
   // eslint-disable-next-line no-useless-constructor
@@ -29,10 +32,10 @@ export class InternalUserList extends Component {
 
   render() {
     return (
-      <div className='user-internal'>
+      <Fragment>
         <layouts.Tittle title="Internal User"/>
-        <common.TableUsers users={this.props.users}/>
-      </div>
+        <common.TableUsers users={this.props.users} redirec={constNames.routeNames.internalUserDetail}/>
+      </Fragment>
       
     );
 
