@@ -4,43 +4,37 @@ import '../../styles/global.css';
 import './internalUserDetail.css';
 import { layouts } from '../../components/layout';
 import { common } from '../../components/common';
-import { actions } from '../../stateManagement/store.js';
-import { connect } from 'react-redux';
+import { internalUserDetailService } from './InternalUserDetailService.js' 
+import { constNames } from '../../const/index.js';
 
-export class InternalUserDetail extends Component {
+
+export default class InternalUserDetail extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props){
     super(props);
+    this.state = {
+      user: {},
+      person: {}
+    } 
   }
 
   async componentDidMount() {
-
-    //const users = await internalUserService.getUsers();
-    //this.props.set(users.results);
-          
-
+    // Se trae el usuarios interno seleccionado
+    const userId = parseInt(this.props.match.params.id,10);  
+    const user = await internalUserDetailService.getUser(userId);   
+    this.setState({user:user});
+    this.setState({person:user.person}); 
   }
 
 
   render() {
     return (
       <div className='user-internal-detail'>
-        <layouts.Tittle title="Internal User Detail"/>
-        <common.CardUser/>
-        {/* <common.TableUsers users={this.props.users}/> */}
+        <layouts.Tittle tittle={constNames.tittles.internalUserDetail}/>
+        <common.CardUser user= {this.state.user} person= {this.state.person}/>
       </div>
       
     );
 
   }
 }
-
-const mapState = (state) => {
-  return {users:state.users};
-
-}
-const mapActions = {set:actions.setUsers};
-
-const internalUserDetail = connect(mapState,mapActions) (InternalUserDetail);
-
-export default internalUserDetail;

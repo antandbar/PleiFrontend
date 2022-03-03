@@ -1,4 +1,4 @@
-import Tittle from "./Title";
+import Tittle from "./Tittle";
 
 export const layouts = {
     Tittle

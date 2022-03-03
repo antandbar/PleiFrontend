@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Table } from 'reactstrap';
 
-export default class TableUsers extends Component {
+export default class InternalTableUsers extends Component {
     render() {
       return (
         <div className='user-table'>
@@ -53,7 +53,7 @@ export default class TableUsers extends Component {
                     {JSON.stringify(users.person.t_wallet).replace(/["']/g, "")}
                     </td>
                     <td>
-                    <a href={this.props.redirec}>Detalle</a>
+                    <a href={this.props.redirec + "/" + users.id}>Detalle</a>
                     </td>
                   </tr>)}
             </tbody>

@@ -7,24 +7,21 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Error404 from './views/error/Error404';
-import { Provider } from 'react-redux';
 import { constNames } from './const/index.js';
-import { store } from './stateManagement/store.js';
+
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Router>
-        <div>  
-          <Switch>
-            <Route path={["/", constNames.routeNames.internalUser]} exact component={InternalUser}/>
-            <Route path={[constNames.routeNames.internalUserDetail]} exact component={InternalUserDetail}/>
-            <Route component={Error404}/> 
-          </Switch>
-        </div>  
-      </Router> 
-    </Provider>
+    <Router>
+      <div>  
+        <Switch>
+          <Route path={["/", constNames.routeNames.internalUser]} exact component={InternalUser}/>
+          <Route path={[`${constNames.routeNames.internalUserDetail}/:id`]} exact component={InternalUserDetail}/>
+          <Route component={Error404}/> 
+        </Switch>
+      </div>  
+    </Router> 
   </React.StrictMode>,
   
   document.getElementById('root')
