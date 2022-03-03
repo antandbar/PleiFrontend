@@ -33,7 +33,7 @@ export default class InternalTableUsers extends Component {
               </tr>
             </thead>
             <tbody>
-                  {this.props.users.map(users => 
+                  {this.props.users?.map(users => 
                   <tr key={users.id}>
                     <th scope="row">
                       {users.id}
@@ -45,13 +45,13 @@ export default class InternalTableUsers extends Component {
                       {users.email}
                     </td>
                     <td>
-                      {JSON.stringify(users.person.tipo_user).replace(/["']/g, "")}
+                      {JSON.stringify(users.person.tipo_user)?.replace(/["']/g, "")}
                     </td>
                     <td>
-                      {JSON.stringify(users.person.wallet).replace(/["']/g, "")}
+                      {JSON.stringify(users.person.wallet)?.replace(/["']/g, "")}
                     </td>
                     <td>
-                    {JSON.stringify(users.person.t_wallet).replace(/["']/g, "")}
+                    {JSON.stringify(users.person.t_wallet)?.replace(/["']/g, "")}
                     </td>
                     <td className='td-detail'>
                     <a href={this.props.redirec + "/" + users.id}>Detail</a>

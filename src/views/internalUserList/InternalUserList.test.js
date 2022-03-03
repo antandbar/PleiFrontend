@@ -9,12 +9,12 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-it('renders InternalUser whithout crashing', () => {
+it('renders titleExist whithout crashing', () => {
   let comp = Enzyme.mount(<InternalUserList />);
-  expect(comp.find("h1").at(0).text()).toEqual("Internal User");
+  expect(comp.find("h1").at(0).text()).toEqual("Usuarios Internos");
 });
 
-it('renders Tittle whithout crashing', () => {
+it('renders h1Exist whithout crashing', () => {
   let comp = Enzyme.mount(<layouts.Tittle />);
   //console.log(comp.html());
   expect(comp.exists("h1")).toEqual(true);
@@ -22,7 +22,7 @@ it('renders Tittle whithout crashing', () => {
 
 it('renders TableUsers whithout crashing', () => {
   const div = document.createElement('div');
-  let users = [
+  const users = [
                 {
                   "id": 2,
                   "username": "plei2",
