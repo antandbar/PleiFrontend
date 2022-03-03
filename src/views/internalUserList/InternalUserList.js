@@ -1,6 +1,7 @@
 import React, { Component, Fragment} from 'react';
 import '../../styles/reset.css';
 import '../../styles/global.css';
+import './internalUserList.css';
 import { layouts } from '../../components/layout';
 import { common } from '../../components/common';
 import { internalUserService } from './InternalUserService';
@@ -18,7 +19,6 @@ export default class InternalUserList extends Component {
 
   }
 
-
   async componentDidMount() {
     this.setState({users:[]})
     // Se traen todos los usuarios internos
@@ -30,7 +30,10 @@ export default class InternalUserList extends Component {
   render() {
     return (
       <Fragment>
-        <layouts.Tittle tittle= {constNames.titles.internalUser}/>
+        <layouts.Title title= {constNames.titles.internalUser}/>
+        <div className='div-internalBtn'>
+          <common.InternalBtn value={constNames.values.CreateUser}/>
+        </div>
         <common.TableUsers users={this.state.users} redirec={constNames.routeNames.internalUserDetail}/> 
       </Fragment>
       

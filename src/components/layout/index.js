@@ -1,5 +1,5 @@
-import Tittle from "./Tittle";
+import Title from "./Title";
 
 export const layouts = {
-    Tittle
+    Title
 } 

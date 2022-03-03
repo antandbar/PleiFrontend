@@ -1,5 +1,7 @@
 .user-table {
-  padding: 5vh;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  padding-top: 2rem;
 }
 
 .th-detail,  .td-detail{
