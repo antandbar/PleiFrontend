@@ -15,8 +15,8 @@ export default class InternalCardUser extends Component {
   };
 
   cameBack = async (e) => {
-    // Se redireccionar a internalUserlist
-    window.location.href = constNames.routeNames.internalUser;
+    // Se redireccionar
+    window.location.href = this.props.redirec;
   };
 
     render() {

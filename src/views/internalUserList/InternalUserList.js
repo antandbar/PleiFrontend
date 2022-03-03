@@ -32,7 +32,7 @@ export default class InternalUserList extends Component {
       <Fragment>
         <layouts.Title title= {constNames.titles.internalUser}/>
         <div className='div-internalBtn'>
-          <common.InternalBtn value={constNames.values.CreateUser}/>
+          <common.InternalBtn value={constNames.values.CreateUser} redirec={constNames.routeNames.internalCreateUser}/>
         </div>
         <common.TableUsers users={this.state.users} redirec={constNames.routeNames.internalUserDetail}/> 
       </Fragment>
