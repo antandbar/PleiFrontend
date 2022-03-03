@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import './css/internalCardUserDetail.css';
 import { Card, CardTitle, CardText, Button} from 'reactstrap';
 import { internalUserDetailService }  from '../../views/internalUserDetail/InternalUserDetailService.js';
 import { constNames } from '../../const/index';

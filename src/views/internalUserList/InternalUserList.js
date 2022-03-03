@@ -1,7 +1,6 @@
 import React, { Component, Fragment} from 'react';
 import '../../styles/reset.css';
 import '../../styles/global.css';
-import './internalUserList.css';
 import { layouts } from '../../components/layout';
 import { common } from '../../components/common';
 import { internalUserService } from './InternalUserService';

@@ -3,30 +3,6 @@
   flex-direction: column;
   align-items: center;
 }
-.card-user {
-  width: 40%;
-}
-.card-user .card-title  {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-.card-user .card-text, .card-title  {
-  margin-left: 3rem;
-  margin-right: 3rem;
-  
-}
-.card-user .card-text span {
-  margin-left: 1rem; 
-  font-weight: bold; 
-}
-.card-user .btn-cameback, .btn-delete {
-  margin-left: 3rem;
-  margin-right: 3rem;
-}
-
-.card-user .btn-cameback {
-  margin-top: 1rem;
-}
 
 
 

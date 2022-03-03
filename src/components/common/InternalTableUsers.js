@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './css/internalTableUsers.css';
 import { Table } from 'reactstrap';
 
 export default class InternalTableUsers extends Component {
@@ -26,7 +27,7 @@ export default class InternalTableUsers extends Component {
                 <th>
                   Wallet Type
                 </th>
-                <th>
+                <th className='th-detail'>
                   Detail
                 </th>
               </tr>
@@ -52,8 +53,8 @@ export default class InternalTableUsers extends Component {
                     <td>
                     {JSON.stringify(users.person.t_wallet).replace(/["']/g, "")}
                     </td>
-                    <td>
-                    <a href={this.props.redirec + "/" + users.id}>Detalle</a>
+                    <td className='td-detail'>
+                    <a href={this.props.redirec + "/" + users.id}>Detail</a>
                     </td>
                   </tr>)}
             </tbody>
