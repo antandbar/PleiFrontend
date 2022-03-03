@@ -30,7 +30,7 @@ export default class InternalUserDetail extends Component {
   render() {
     return (
       <div className='user-internal-detail'>
-        <layouts.Tittle tittle={constNames.tittles.internalUserDetail}/>
+        <layouts.Tittle tittle={constNames.titles.internalUserDetail}/>
         <common.CardUser user= {this.state.user} person= {this.state.person}/>
       </div>
       

@@ -3,7 +3,7 @@ export class InternalUserDetailService {
     // eslint-disable-next-line no-useless-constructor
     constructor(){}
   
-    // Se devulven los usuarios
+    // Se devulve usuario según ID
     async getUser(userId) {
       const url = constNames.routeNames.internalUserExt;
       let usersResponse;
@@ -27,6 +27,26 @@ export class InternalUserDetailService {
       }
   
       return user;
+    }
+
+    // Se elimina Usuario según ID
+    async deleteUser(userId) {
+      const url = constNames.routeNames.internalUserExt;
+      let usersResponse;
+      let user;
+
+      try {
+        usersResponse = await fetch(`${url}${userId}`,{
+          method: "DELETE"},);
+      } catch (error) {
+        throw new Error("No he podido ir a el usuario a eliminar");
+      }
+  
+       // Se evalua si la respuesta fue exitosa
+      if (!usersResponse.ok) {
+        throw new Error("Usuario a eliminar no encontrado");
+      }
+        
     }
 
   }

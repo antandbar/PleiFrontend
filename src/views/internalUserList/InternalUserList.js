@@ -21,6 +21,7 @@ export default class InternalUserList extends Component {
 
 
   async componentDidMount() {
+    this.setState({users:[]})
     // Se traen todos los usuarios internos
     const users = await internalUserService.getUsers();
     this.setState({users:users.results})
@@ -30,7 +31,7 @@ export default class InternalUserList extends Component {
   render() {
     return (
       <Fragment>
-        <layouts.Tittle tittle= {constNames.tittles.internalUser}/>
+        <layouts.Tittle tittle= {constNames.titles.internalUser}/>
         <common.TableUsers users={this.state.users} redirec={constNames.routeNames.internalUserDetail}/> 
       </Fragment>
       

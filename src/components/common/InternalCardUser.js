@@ -1,31 +1,51 @@
-import React, { Component, Fragment} from 'react';
-import {Card, CardTitle, CardText, Button} from 'reactstrap';
+import React, { Component} from 'react';
+import { Card, CardTitle, CardText, Button} from 'reactstrap';
+import { internalUserDetailService }  from '../../views/internalUserDetail/InternalUserDetailService.js';
+import { constNames } from '../../const/index';
 
 export default class InternalCardUser extends Component {
 
+  deleteUser = async (e) => {
+    console.log(this.props.user.id);
+    // Se elimina el usuarios interno seleccionado 
+    await internalUserDetailService.deleteUser(this.props.user.id); 
+    // Se redireccionar a internalUserlist
+    window.location.href = constNames.routeNames.internalUser;
+  };
+
+  cameBack = async (e) => {
+    // Se redireccionar a internalUserlist
+    window.location.href = constNames.routeNames.internalUser;
+  };
+
     render() {
       return (
-        <Fragment>
         
-        <Card body color="secondary" outline className='card-user'>
-        <CardTitle tag="h5">
-        {this.props.user.id} - {this.props.user.username}
+      <Card body color="secondary" outline className='card-user'>
+        <CardTitle tag="h5" className='card-title'>
+          <span>Id: {this.props.user.id} - User: {this.props.user.username}</span>
         </CardTitle>
-        <CardText>
-          email: {this.props.user.email} <br/>
-           {this.props.person.wallet}   
-          {/* tipo de usuario: {person.tipo_user} */}
-          {/* {JSON.stringify(this.props.user.person.wallet)}   */}
-          
-
-      
+        <CardText className='card-text'>  
+          <span>email:</span> {this.props.user.email}
         </CardText>
-        <Button>
-          Button
+        <CardText className='card-text'>
+          <span>User Type:</span> {this.props.person.tipo_user}  
+        </CardText> 
+        <CardText className='card-text'>
+          <span>Wallet:</span> {this.props.person.wallet}  
+        </CardText> 
+        <CardText className='card-text'>
+          <span>Wallet Type: </span>{this.props.person.t_wallet}  
+        </CardText> 
+
+        <Button className='btn-delete' onClick={this.deleteUser}>
+          Eliminar
+        </Button>
+        <Button className='btn-cameback' onClick={this.cameBack}>
+          Volver
         </Button>
       </Card>
-      {/* tipo de usuario: {JSON.stringify(this.props.user.person.tipo_user)}   */}
-      </Fragment>
+    
       );
     }
 }
