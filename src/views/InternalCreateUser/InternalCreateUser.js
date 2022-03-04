@@ -1,10 +1,9 @@
-import React, { Component, Fragment} from 'react';
+import React, { Component } from 'react';
 import '../../styles/reset.css';
 import '../../styles/global.css';
-
+import './internalUserCreate.css';
 import { layouts } from '../../components/layout';
 import { common } from '../../components/common';
-
 import { constNames } from '../../const/index.js';
 
 
@@ -29,9 +28,10 @@ export default class InternalCreateUser extends Component {
 
   render() {
     return (
-      <Fragment>
+      <div className='user-internal-create'>
         <layouts.Title title={constNames.titles.internalCreateUser}/>
-      </Fragment>
+        <common.InternalFormUser/>
+      </div>
       
     );
 
