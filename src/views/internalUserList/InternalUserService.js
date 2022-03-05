@@ -18,7 +18,7 @@ export class InternalUserService {
   
        // Se evalua si la respuesta fue exitosa
       if (!usersResponse.ok) {
-        throw new Error("Usuarios no encontrados");
+        throw new Error("usuarios no encontrados");
       }
         
       try {

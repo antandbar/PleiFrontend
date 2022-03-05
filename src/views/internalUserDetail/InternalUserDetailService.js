@@ -33,18 +33,17 @@ export class InternalUserDetailService {
     async deleteUser(userId) {
       const url = constNames.routeNames.internalUserExt;
       let usersResponse;
-      let user;
 
       try {
         usersResponse = await fetch(`${url}${userId}`,{
           method: "DELETE"},);
       } catch (error) {
-        throw new Error("No he podido ir a el usuario a eliminar");
+        throw new Error("no he podido ir a el usuario a eliminar");
       }
   
        // Se evalua si la respuesta fue exitosa
       if (!usersResponse.ok) {
-        throw new Error("Usuario a eliminar no encontrado");
+        throw new Error("usuario a eliminar no encontrado");
       }
         
     }
