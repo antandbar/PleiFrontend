@@ -4,6 +4,7 @@ import './index.css';
 import InternalUser from './views/internalUserList/InternalUserList.js';
 import InternalUserDetail from './views/internalUserDetail/InternalUserDetail.js';
 import InternalCreateUser from './views/InternalCreateUser/InternalCreateUser.js';
+import InternalEditUser from './views/InternalEditUser/InternalEditUser.js';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -20,6 +21,7 @@ ReactDOM.render(
           <Route path={["/", constNames.routeNames.internalUser]} exact component={InternalUser}/>
           <Route path={[`${constNames.routeNames.internalUserDetail}/:id`]} exact component={InternalUserDetail}/>
           <Route path={[constNames.routeNames.internalCreateUser]} exact component={InternalCreateUser}/>
+          <Route path={[`${constNames.routeNames.internalEditUser}/:id`]} exact component={InternalEditUser}/>
           <Route component={Error404}/> 
         </Switch>
       </div>  

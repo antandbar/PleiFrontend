@@ -16,11 +16,11 @@
   margin-left: 1rem; 
   font-weight: bold; 
 }
-.card-user .btn-cameback, .btn-delete {
+.card-user .btn-cameback, .btn-delete, .btn-edit {
   margin-left: 3rem;
   margin-right: 3rem;
 }
 
-.card-user .btn-cameback {
-  margin-top: 1rem;
+.card-user .btn-cameback, .btn-delete  {
+  margin-top: 0.4rem;
 }

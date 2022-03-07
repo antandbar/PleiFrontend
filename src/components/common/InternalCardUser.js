@@ -16,7 +16,13 @@ export default class InternalCardUser extends Component {
 
   cameBack = async (e) => {
     // Se redireccionar
-    window.location.href = this.props.redirec;
+    window.location.href = this.props.comeBack;
+  };
+
+  editUser = async (e) => {
+    // Se redireccionar
+    console.log(this.props.user.id);
+    window.location.href = `${this.props.edit}/${this.props.user.id}` ;
   };
 
     render() {
@@ -39,9 +45,14 @@ export default class InternalCardUser extends Component {
           <span>Wallet Type: </span>{this.props.person.t_wallet}  
         </CardText> 
 
+        <Button className='btn-edit' onClick={this.editUser}>
+          Editar
+        </Button>
+        
         <Button className='btn-delete' onClick={this.deleteUser}>
           Eliminar
         </Button>
+
         <Button className='btn-cameback' onClick={this.cameBack}>
           Volver
         </Button>

@@ -152,7 +152,7 @@ export default class InternalFormUser extends Component {
             </FormGroup>
           <FormGroup check row>
             <Col sm={{offset: 2,size: 10,}}>
-              <Button>Submit</Button>
+              <Button className="submit">Submit</Button>
             </Col>
           </FormGroup>
         </Form>
