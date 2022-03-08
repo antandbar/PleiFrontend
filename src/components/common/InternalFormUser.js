@@ -136,7 +136,7 @@ export default class InternalFormUser extends Component {
           </legend>
           <Col sm={10}>
             <FormGroup check>
-              <Input className="radio_t_wallet" name="radio1" type="radio" value="Ronin" 
+              <Input name="radio1" type="radio" value="Ronin" 
               checked={ this.props.person?.t_wallet === "Ronin"? 
                 true:false}  
                 onChange={this.tWalletChange}/>
@@ -146,7 +146,7 @@ export default class InternalFormUser extends Component {
               </Label>
             </FormGroup>
             <FormGroup check>
-              <Input className="radio_t_wallet" name="radio1" type="radio" value="Etherum" 
+              <Input name="radio1" type="radio" value="Etherum" 
               checked={ this.props.person?.t_wallet === "Etherum"? 
               true:false}   
                 onChange={this.tWalletChange}/>
@@ -157,7 +157,8 @@ export default class InternalFormUser extends Component {
             </FormGroup>
             <FormGroup check disabled>
               <Input disabled name="radio1" type="radio" value="Tron" 
-              /* checked={ this.props.person?.t_wallet?"Tron" === this.props.person?.t_wallet:false} */
+              checked={ this.props.person?.t_wallet === "Tron"? 
+              true:false} 
               onChange={this.tWalletChange}/>
               {' '}
               <Label check>

@@ -21,7 +21,6 @@ export default class InternalCardUser extends Component {
 
   editUser = async (e) => {
     // Se redireccionar
-    console.log(this.props.user.id);
     window.location.href = `${this.props.edit}/${this.props.user.id}` ;
   };
 

@@ -29,6 +29,50 @@ export class InternalEditUserService {
       return user;
     }
 
+    // Se actualiza Usuario
+    async updateUser(user) {
+      const url = constNames.routeNames.internalUserExt;
+      //debugger;
+      let usersResponse;
+      let errorResponse = null;
+/*          let userPrueba =         {
+        "username": "plei66",
+        "email": "plei@plei.games",
+        "password":"123456",
+        "person": {
+            "tipo_user": "GAM",
+            "wallet": "perro gato",
+            "t_wallet": "Ether"
+        }
+    } */ 
+      //debugger;
+      try {
+        usersResponse = await fetch(`${url}${user.id}/`,{
+          method: "PUT",
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(user),
+      });
+      } catch (error) {
+        throw new Error("no he podido guardar el usuario");
+      }
+
+        // Se evalua si la respuesta fue exitosa
+      if (!usersResponse.ok) {
+        // Se captura la respuesta del tipo de error
+        try {
+          errorResponse = await usersResponse.json();
+          return Object.values(errorResponse)[0][0];
+        } catch (error) {
+          throw new Error("no he podido transformar la respuesta a json");
+        }
+      }
+      
+      // se retorna error false
+      return false;
+  }
+
   }
   
 export const internalEditUserService = new InternalEditUserService();
