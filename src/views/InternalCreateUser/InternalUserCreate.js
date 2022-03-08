@@ -8,7 +8,7 @@ import { constNames } from '../../const/index.js';
 import { internalUserCreateService } from './InternalUserCreateService.js';
 
 
-export default class InternalCreateUser extends Component {
+export default class InternalUserCreate extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props){
     super(props);

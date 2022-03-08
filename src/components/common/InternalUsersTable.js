@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './css/internalTableUsers.css';
+import './css/internalUsersTable.css';
 import { Table } from 'reactstrap';
 
 export default class InternalTableUsers extends Component {

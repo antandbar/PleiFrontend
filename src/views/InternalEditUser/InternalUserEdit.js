@@ -1,19 +1,15 @@
 import React, { Component} from 'react';
 import '../../styles/reset.css';
 import '../../styles/global.css';
-import './internalEditUser.css';
-import { internalEditUserService } from './InternalEditUserService.js'; 
+import './internalUserEdit.css';
+import { internalUserEditService } from './InternalUserEditService.js'; 
 import { layouts } from '../../components/layout';
 import { constNames } from '../../const/index.js';
 import { common } from '../../components/common';
-/* import './internalUserDetail.css';
-import { layouts } from '../../components/layout';
-import { common } from '../../components/common';
-import { internalUserDetailService } from './InternalUserDetailService.js' 
-import { constNames } from '../../const/index.js'; */
 
 
-export default class InternalEditUser extends Component {
+
+export default class InternalUserEdit extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props){
     super(props);
@@ -26,7 +22,7 @@ export default class InternalEditUser extends Component {
   async componentDidMount() {
     // Se trae el usuarios interno seleccionado
     const userId = parseInt(this.props.match.params.id,10);  
-    const user = await internalEditUserService.getUser(userId);   
+    const user = await internalUserEditService.getUser(userId);   
     this.setState({user:user});
     this.setState({person:user.person}); 
   }
@@ -44,7 +40,7 @@ export default class InternalEditUser extends Component {
     // Se setea el usuario desde el hijo
     setUser = async (user) => {
       const userTransform = this.transform(user);
-      const response = await internalEditUserService.updateUser(userTransform);
+      const response = await internalUserEditService.updateUser(userTransform);
       this.setState({error:response})
     }
 

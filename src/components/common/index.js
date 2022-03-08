@@ -1,7 +1,7 @@
-import TableUsers from "./InternalTableUsers.js";
-import CardUser from "./InternalCardUser.js";
+import TableUsers from "./InternalUsersTable.js";
+import CardUser from "./InternalUserCard.js";
 import InternalBtn from "./internalRedirecBtn.js"
-import InternalFormUser from "./InternalFormUser.js"
+import InternalFormUser from "./InternalUserForm.js"
 
 
 export const common = {

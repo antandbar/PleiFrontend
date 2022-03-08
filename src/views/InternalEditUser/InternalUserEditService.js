@@ -1,5 +1,5 @@
 import { constNames } from '../../const/index.js';
-export class InternalEditUserService {
+export class InternalUserEditService {
     // eslint-disable-next-line no-useless-constructor
     constructor(){}
   
@@ -75,4 +75,4 @@ export class InternalEditUserService {
 
   }
   
-export const internalEditUserService = new InternalEditUserService();
+export const internalUserEditService = new InternalUserEditService();
