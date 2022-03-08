@@ -32,7 +32,7 @@ export default class InternalUserDetail extends Component {
       <div className='user-internal-detail'>
         <layouts.Title title={constNames.titles.internalUserDetail}/>
         <common.CardUser user= {this.state.user} person= {this.state.person} 
-          comeBack= {constNames.routeNames.internalEditUser}
+          comeBack= {constNames.routeNames.internalUser}
           edit = {constNames.routeNames.internalEditUser}/>
       </div>
       

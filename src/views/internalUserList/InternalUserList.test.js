@@ -15,7 +15,7 @@ it('renders titleExist whithout crashing', () => {
 });
 
 it('renders h1Exist whithout crashing', () => {
-  let comp = Enzyme.mount(<layouts.Tittle />);
+  let comp = Enzyme.mount(<layouts.Title />);
   //console.log(comp.html());
   expect(comp.exists("h1")).toEqual(true);
 });
