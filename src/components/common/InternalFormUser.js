@@ -17,12 +17,13 @@ export default class InternalFormUser extends Component {
       username: "",
       password:"",
       email: "",
-      wallet:null,
-      t_wallet:null,
-      error:null
-        
+      wallet:"",
+      t_wallet:"",
+      error:null     
     } 
   }
+
+
   // Se seta el objeto desde el estado
   transformUser = () => {
     return { 
@@ -61,6 +62,10 @@ export default class InternalFormUser extends Component {
   }
   tWalletChange = (e) => {
     this.setState({t_wallet:e.target.value});
+    // Se actualiza la propiedad t_wallet cada check
+   if(this.props.person?.t_wallet != null){
+       this.props.person.t_wallet = e.target.value;
+    } 
   }
 
   render() {
@@ -85,7 +90,8 @@ export default class InternalFormUser extends Component {
               User Name
             </Label>
             <Col sm={10}>
-              <Input id="user-name" name="user-name" placeholder="User Name" required onChange={this.userNameChange}/>
+              <Input id="user-name" name="user-name" placeholder="User Name" required 
+              defaultValue= {this.props.user?.username?this.props.user?.username:""} onChange={this.userNameChange}/>
             </Col>
           </FormGroup>
           <FormGroup row>
@@ -101,7 +107,8 @@ export default class InternalFormUser extends Component {
               Email
             </Label>
             <Col sm={10}>
-              <Input id="email" name="email" placeholder="email" type="email" required onChange={this.emailChange}/>
+              <Input id="email" name="email" placeholder="email" type="email" required 
+              defaultValue= {this.props.user?.email?this.props.user?.email:""} onChange={this.emailChange}/>
             </Col>
           </FormGroup>
           <FormGroup row>
@@ -119,7 +126,8 @@ export default class InternalFormUser extends Component {
               Wallet
             </Label>
             <Col sm={10}>
-              <Input id="wallet" name="wallet" type="textarea" placeholder="Wallet" onChange={this.walletChange}/>
+              <Input id="wallet" name="wallet" type="textarea" placeholder="Wallet" 
+              defaultValue={this.props.person?.wallet?this.props.person?.wallet:""} onChange={this.walletChange}/>
             </Col>
           </FormGroup>
           <FormGroup row tag="fieldset">
@@ -128,21 +136,29 @@ export default class InternalFormUser extends Component {
           </legend>
           <Col sm={10}>
             <FormGroup check>
-              <Input name="radio1" type="radio" value="Ronin" onChange={this.tWalletChange}/>
+              <Input className="radio_t_wallet" name="radio1" type="radio" value="Ronin" 
+              checked={ this.props.person?.t_wallet === "Ronin"? 
+                true:false}  
+                onChange={this.tWalletChange}/>
               {' '}
               <Label check>
-                Ronin
+                Ronin 
               </Label>
             </FormGroup>
             <FormGroup check>
-              <Input name="radio1" type="radio" value="Etherum" onChange={this.tWalletChange}/>
+              <Input className="radio_t_wallet" name="radio1" type="radio" value="Etherum" 
+              checked={ this.props.person?.t_wallet === "Etherum"? 
+              true:false}   
+                onChange={this.tWalletChange}/>
               {' '}
               <Label check>
-                Etherum
+                Etherum 
               </Label>
             </FormGroup>
             <FormGroup check disabled>
-              <Input disabled name="radio1" type="radio" value="Tron" onChange={this.tWalletChange}/>
+              <Input disabled name="radio1" type="radio" value="Tron" 
+              /* checked={ this.props.person?.t_wallet?"Tron" === this.props.person?.t_wallet:false} */
+              onChange={this.tWalletChange}/>
               {' '}
               <Label check>
                 Tron

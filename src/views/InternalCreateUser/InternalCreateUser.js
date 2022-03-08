@@ -13,7 +13,8 @@ export default class InternalCreateUser extends Component {
   constructor(props){
     super(props);
     this.state = {
-      error: null
+      error: null,
+      person: {t_wallet:""}
     } 
     
   }
@@ -32,7 +33,7 @@ export default class InternalCreateUser extends Component {
     return (
       <div className='user-internal-create'>
         <layouts.Title title={constNames.titles.internalCreateUser}/>
-        <common.InternalFormUser setUser={this.setUser} error= {this.state.error} redirec= {constNames.routeNames.internalUser}/>
+        <common.InternalFormUser person= {this.state.person} setUser={this.setUser} error= {this.state.error} redirec= {constNames.routeNames.internalUser}/>
       </div>
       
     );
