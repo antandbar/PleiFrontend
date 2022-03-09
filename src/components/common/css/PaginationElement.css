@@ -1,0 +1,19 @@
+.pagination-box {
+  padding-left: 6rem;
+  padding-right: 6rem;
+  padding-top: 2rem;
+}
+
+
+.pagination-item .pagination-link {
+  background-color: black;
+  border: 1px solid whitesmoke;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.pagination-item .pagination-link:hover{
+  color: black;
+  text-decoration: none;
+}
+

@@ -34,6 +34,7 @@ export default class InternalUserList extends Component {
         <div className='div-internalBtn'>
           <common.InternalBtn value={constNames.values.CreateUser} redirec={constNames.routeNames.internalCreateUser}/>
         </div>
+        <common.PaginationElement></common.PaginationElement>
         <common.TableUsers users={this.state.users} redirec={constNames.routeNames.internalUserDetail}/> 
       </Fragment>
       
