@@ -14,18 +14,32 @@ export default class InternalUserList extends Component {
   constructor(props){
     super(props);
     this.state = {
-      users: []
+      users: [],
+      numUsers: null
     }
 
   }
 
   async componentDidMount() {
-    this.setState({users:[]})
-    // Se traen todos los usuarios internos
-    const users = await internalUserService.getUsers();
-    this.setState({users:users.results})
+    if (this.state.users.length === 0) {
+      this.setState({users:[]})
+      // Se traen todos los usuarios internos
+      const users = await internalUserService.getUsers();
+      this.setState({users:users.results});
+      this.setState({numUsers:users.count});
+      //console.log(users.count);
+
+    }
   }
 
+    // Se setea el usuario desde el hijo
+    pagination = async (limit, offSet) => {
+      this.setState({users:[]})
+      // Se traen todos los usuarios internos
+      const users = await internalUserService.getUsers(limit, offSet);
+      this.setState({users:users.results});
+      this.setState({numUsers:users.count}); 
+    }
 
   render() {
     return (
@@ -34,7 +48,7 @@ export default class InternalUserList extends Component {
         <div className='div-internalBtn'>
           <common.InternalBtn value={constNames.values.CreateUser} redirec={constNames.routeNames.internalCreateUser}/>
         </div>
-        <common.PaginationElement></common.PaginationElement>
+        <common.PaginationElement numRecords = {this.state.numUsers} pagination= {this.pagination}></common.PaginationElement>
         <common.TableUsers users={this.state.users} redirec={constNames.routeNames.internalUserDetail}/> 
       </Fragment>
       

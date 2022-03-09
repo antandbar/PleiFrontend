@@ -4,14 +4,13 @@ export class InternalUserService {
     constructor(){}
   
     // Se devulven los usuarios
-    async getUsers() {
+    async getUsers(limit, offSet) {
       const url = constNames.routeNames.internalUserExt;
-  
       let usersResponse;
       let users;
   
       try {
-        usersResponse = await fetch(url);
+        usersResponse = await fetch(`${url}?limit=${limit}&offset=${offSet}`);
       } catch (error) {
         throw new Error("No he podido ir a por los usuarios");
       }
