@@ -25,6 +25,7 @@ export class InternalUserCreateService {
           method: "POST",
           headers: {
             'Content-Type': 'application/json',
+            Authorization: `Token ${constNames.routeNames.testToken}`,
           },
           body: JSON.stringify(user),
       });

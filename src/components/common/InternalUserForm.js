@@ -14,11 +14,11 @@ export default class InternalFormUser extends Component {
   constructor(props){
     super(props);
     this.state = {
-      username: "",
-      password:"",
-      email: "",
-      wallet:"",
-      t_wallet:"",
+      blockchain: "",
+      wallet_type:"",
+      wallet_name: "",
+      wallet_address:"",
+      user_id: "", 
       error:null     
     } 
   }
@@ -27,14 +27,16 @@ export default class InternalFormUser extends Component {
   // Se seta el objeto desde el estado
   transformUser = () => {
     return { 
-        username: this.state.username,
-        email: this.state.email,
-        password: this.state.password,
-        person: {
+      user_id: 1,
+      blockchain: this.state.blockchain,
+      wallet_type: this.state.wallet_type,
+      wallet_name: this.state.wallet_name,
+      wallet_address: this.state.wallet_address,
+/*         person: {
           tipo_user: "INT",
           wallet: this.state.wallet,
           t_wallet: this.state.t_wallet
-        }
+        } */
     }
   }
 
@@ -45,8 +47,18 @@ export default class InternalFormUser extends Component {
    /*  window.location.href = this.props.redirec; */
   }
   
-  userNameChange = (e) => {
-    this.setState({username:e.target.value});
+  userblockchainChange = (e) => {
+    this.setState({blockchain:e.target.value});
+  }
+
+  userWalletTypeChange = (e) => {
+    this.setState({wallet_type:e.target.value});
+  }
+  userWalletNameChange = (e) => {
+    this.setState({wallet_name:e.target.value});
+  }
+  userWalletAddressChange = (e) => {
+    this.setState({wallet_address:e.target.value});
   }
 
   pswChange = (e) => {
@@ -83,6 +95,60 @@ export default class InternalFormUser extends Component {
     }
     return (
       <Fragment>
+      <Form className="form-internal-user" onSubmit={this.sendUser}>
+      <IsAlert isError= {this.props.error}/>
+      <FormGroup row>
+          <Label for="User" sm={2}>
+            User
+          </Label>
+          <Col sm={10}>
+            <Input id="User" name="User" value={"Plei Super Admin"} readOnly/>
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Label for="blockchain" sm={2}>
+            Blockchain
+          </Label>
+          <Col sm={10}>
+            <Input id="blockchain" name="blockchain" placeholder="blockchain" 
+            defaultValue= {this.props.user?.blockchain?this.props.user?.blockchain:""} onChange={this.userblockchainChange}/>
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Label for="wallet_type" sm={2}>
+            Wallet Type
+          </Label>
+          <Col sm={10}>
+            <Input id="wallet_type" name="wallet_type" placeholder="wallet Type" 
+            defaultValue= {this.props.user?.wallet_type?this.props.user?.wallet_type:""} onChange={this.userWalletTypeChange}/>
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Label for="wallet_name" sm={2}>
+            Wallet Name
+          </Label>
+          <Col sm={10}>
+            <Input id="wallet_name" name="wallet_name" placeholder="wallet Name" 
+            defaultValue= {this.props.user?.wallet_name?this.props.user?.wallet_name:""} onChange={this.userWalletNameChange}/>
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Label for="wallet_address" sm={2}>
+          wallet Address
+          </Label>
+          <Col sm={10}>
+            <Input id="wallet_address" name="wallet_address" placeholder="wallet Address" 
+            defaultValue= {this.props.user?.wallet_address?this.props.user?.wallet_address:""} onChange={this.userWalletAddressChange}/>
+          </Col>
+        </FormGroup>
+        <FormGroup check row>
+          <Col sm={{offset: 2,size: 10,}}>
+            <Button className="submit">Submit</Button>
+          </Col>
+        </FormGroup>
+      </Form>
+    </Fragment>
+/*       <Fragment>
         <Form className="form-internal-user" onSubmit={this.sendUser}>
         <IsAlert isError= {this.props.error}/>
           <FormGroup row>
@@ -173,7 +239,7 @@ export default class InternalFormUser extends Component {
             </Col>
           </FormGroup>
         </Form>
-      </Fragment>
+      </Fragment> */
     );
   }
 }

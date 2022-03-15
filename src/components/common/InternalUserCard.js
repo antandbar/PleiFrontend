@@ -28,7 +28,7 @@ export default class InternalCardUser extends Component {
       <Card body color="secondary" outline className="card-user">
       <CardTitle tag="h5" className="card-title">
         <span>
-          Id: {this.props.user.id_internal}
+          Id: {this.props.user.id_internal} - User: Plei Super Admin
         </span>
       </CardTitle>
       <CardText className="card-text">
