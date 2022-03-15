@@ -6,6 +6,55 @@ export default class InternalTableUsers extends Component {
     render() {
       return (
         <div className='user-table'>
+        <Table dark>
+          <thead>
+            <tr>
+              <th>
+                #
+              </th>
+              <th>
+              Blockchain
+              </th>
+              <th>
+                Wallet Type
+              </th>
+              <th>
+                Wallet Name
+              </th>
+              <th>
+                Wallet Address
+              </th>
+              <th className='th-detail'>
+                Detail
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+                {this.props.users?.map(users => 
+                <tr key={users.id_internal}>
+                  <th scope="row">
+                    {users.id_internal}
+                  </th>
+                  <td>
+                    {users.blockchain} 
+                  </td>
+                  <td>
+                    {users.wallet_type}
+                  </td>
+                  <td>
+                    {users.wallet_name}
+                  </td>
+                  <td>
+                    {users.wallet_address}
+                  </td>
+                  <td className='td-detail'>
+                    <a href={this.props.redirec + "/" + users.id}>Detail</a>
+                  </td>
+                </tr>)}
+          </tbody>
+        </Table>
+    </div>
+/*         <div className='user-table'>
           <Table dark>
             <thead>
               <tr>
@@ -59,7 +108,7 @@ export default class InternalTableUsers extends Component {
                   </tr>)}
             </tbody>
           </Table>
-      </div>
+      </div> */
       );
     }
 }

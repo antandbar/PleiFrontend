@@ -1,4 +1,4 @@
-const CreateUser = 'Create User';
+const CreateUser = 'Create Data User';
 
 
 export const values = {

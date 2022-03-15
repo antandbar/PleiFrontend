@@ -1,8 +1,8 @@
 
-const internalUser = 'Usuarios Internos';
-const internalUserDetail = 'Detalle del Usuario Interno';
-const internalCreateUser = 'Crear Usuario';
-const internalEditUser = 'Editar Usuario';
+const internalUser = 'Data Usuario Interno';
+const internalUserDetail = 'Detalle Data Usuario Interno';
+const internalCreateUser = 'Crear Data Usuario';
+const internalEditUser = 'Editar Data Usuario';
 
 export const titles = {
     internalUser,

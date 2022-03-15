@@ -10,7 +10,10 @@ export class InternalUserService {
       let users;
   
       try {
-        usersResponse = await fetch(`${url}?limit=${limit}&offset=${offSet}`);
+        usersResponse = await fetch(`${url}?limit=${limit}&offset=${offSet}`,{
+          headers: {
+            Authorization: `Token ${constNames.routeNames.testToken}`,}
+          });
       } catch (error) {
         throw new Error("No he podido ir a por los usuarios");
       }
