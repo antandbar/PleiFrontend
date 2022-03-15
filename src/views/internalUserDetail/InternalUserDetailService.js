@@ -10,7 +10,10 @@ export class InternalUserDetailService {
       let user;
 
       try {
-        usersResponse = await fetch(`${url}${userId}`);
+        usersResponse = await fetch(`${url}${userId}`,{
+          headers: {
+            Authorization: `Token ${constNames.routeNames.testToken}`,}
+          });
       } catch (error) {
         throw new Error("No he podido ir a el usuario");
       }

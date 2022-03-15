@@ -48,7 +48,7 @@ export default class InternalTableUsers extends Component {
                     {users.wallet_address}
                   </td>
                   <td className='td-detail'>
-                    <a href={this.props.redirec + "/" + users.id}>Detail</a>
+                    <a href={this.props.redirec + "/" + users.id_internal}>Detail</a>
                   </td>
                 </tr>)}
           </tbody>
