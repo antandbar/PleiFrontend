@@ -18,7 +18,6 @@ export default class InternalFormUser extends Component {
       wallet_type:"",
       wallet_name: "",
       wallet_address:"",
-      user_id: "", 
       error:null     
     } 
   }
@@ -27,7 +26,8 @@ export default class InternalFormUser extends Component {
   // Se seta el objeto desde el estado
   transformUser = () => {
     return { 
-      user_id: 1,
+      user_id: "",
+      id_internal: "",
       blockchain: this.state.blockchain,
       wallet_type: this.state.wallet_type,
       wallet_name: this.state.wallet_name,
@@ -42,8 +42,9 @@ export default class InternalFormUser extends Component {
 
   // Se llama a la función del padre
   sendUser = (e) => {
-    this.props.setUser(this.transformUser());
     e.preventDefault();
+    this.props.setUser(this.transformUser());
+   
    /*  window.location.href = this.props.redirec; */
   }
   
@@ -81,6 +82,7 @@ export default class InternalFormUser extends Component {
   }
 
   render() {
+    
     // Se evalua si se guardo correctamente     
     if(this.props.error === false) {
       window.location.href = this.props.redirec;

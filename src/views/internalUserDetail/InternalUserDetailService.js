@@ -39,7 +39,12 @@ export class InternalUserDetailService {
 
       try {
         usersResponse = await fetch(`${url}${userId}`,{
-          method: "DELETE"},);
+          method: "DELETE",
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Token ${constNames.routeNames.testToken}`,
+          },
+        },);
       } catch (error) {
         throw new Error("no he podido ir a el usuario a eliminar");
       }

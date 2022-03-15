@@ -6,9 +6,8 @@ import { constNames } from '../../const/index';
 
 export default class InternalCardUser extends Component {
   deleteUser = async e => {
-    console.log(this.props.user.id);
     // Se elimina el usuarios interno seleccionado
-    await internalUserDetailService.deleteUser(this.props.user.id);
+    await internalUserDetailService.deleteUser(this.props.user.id_internal);
     // Se redireccionar a internalUserlist
     window.location.href = constNames.routeNames.internalUser;
   };
@@ -20,7 +19,7 @@ export default class InternalCardUser extends Component {
 
   editUser = async e => {
     // Se redireccionar
-    window.location.href = `${this.props.edit}/${this.props.user.id}`;
+    window.location.href = `${this.props.edit}/${this.props.user.id_internal}`;
   };
 
   render() {

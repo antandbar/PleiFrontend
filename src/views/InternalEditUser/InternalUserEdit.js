@@ -28,12 +28,12 @@ export default class InternalUserEdit extends Component {
   }
 
     transform = (user) => {
-      if(!user.id) user.id = this.state.user.id;
-      if(!user.username) user.username = this.state.user.username;
-      if(!user.email) user.email = this.state.user.email;
-      if(!user.person.tipo_user) user.person.tipo_user = this.state.person.tipo_user;
-      if(!user.person.wallet) user.person.wallet = this.state.person.wallet;
-      if(!user.person.t_wallet) user.person.t_wallet = this.state.person.t_wallet;
+      if(!user.user_id) user.user_id = this.state.user.user_id;
+      if(!user.id_internal) user.id_internal = this.state.user.id_internal;
+      if(!user.blockchain) user.blockchain = this.state.user.blockchain;
+      if(!user.wallet_type) user.wallet_type = this.state.user.wallet_type;
+      if(!user.wallet_name) user.wallet_name = this.state.user.wallet_name;
+      if(!user.wallet_address) user.wallet_address = this.state.user.wallet_address;
 
       return user;
     }
@@ -48,7 +48,7 @@ export default class InternalUserEdit extends Component {
   render() {
     return (
       <div className='user-internal-edit'>
-        <layouts.Title title={`${constNames.titles.internalEditUser} - Id: ${this.state.user.id}`} />
+        <layouts.Title title={`${constNames.titles.internalEditUser} - Id: ${this.state.user.id_internal}`} />
         <common.InternalFormUser person= {this.state.person} user={this.state.user} setUser={this.setUser} error= {this.state.error} redirec= {constNames.routeNames.internalUser}/>
       </div>
       

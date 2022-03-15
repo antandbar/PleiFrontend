@@ -21,6 +21,7 @@ export default class InternalUserCreate extends Component {
 
   // Se setea el usuario desde el hijo
   setUser = async (user) => {
+    if(!user.user_id) user.user_id = 1;
     const response = await internalUserCreateService.createUser(user);
     this.setState({error:response})
     //console.log(this.setState.error);

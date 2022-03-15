@@ -10,7 +10,10 @@ export class InternalUserEditService {
       let user;
 
       try {
-        usersResponse = await fetch(`${url}${userId}`);
+        usersResponse = await fetch(`${url}${userId}`,{
+          headers: {
+            Authorization: `Token ${constNames.routeNames.testToken}`,}
+          });
       } catch (error) {
         throw new Error("No he podido ir a el usuario");
       }
@@ -47,10 +50,11 @@ export class InternalUserEditService {
     } */ 
       //debugger;
       try {
-        usersResponse = await fetch(`${url}${user.id}/`,{
+        usersResponse = await fetch(`${url}${user.id_internal}/`,{
           method: "PUT",
           headers: {
             'Content-Type': 'application/json',
+            Authorization: `Token ${constNames.routeNames.testToken}`,
           },
           body: JSON.stringify(user),
       });
