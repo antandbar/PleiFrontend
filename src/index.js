@@ -1,34 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import InternalUser from './views/internalUserList/InternalUserList.js';
-import InternalUserDetail from './views/internalUserDetail/InternalUserDetail.js';
-import InternalCreateUser from './views/InternalCreateUser/InternalUserCreate.js';
-import InternalEditUser from './views/InternalEditUser/InternalUserEdit.js';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Error404 from './views/error/Error404';
-import { constNames } from './const/index.js';
+import { BrowserRouter as Router } from 'react-router-dom';
+import storage from './utils/storage';
+import App from './App';
 
-
+const accessToken = storage.get('auth');
+//setAuthorizationHeader(accessToken);
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <div>  
-        <Switch>
-          <Route path={["/", constNames.routeNames.internalUser]} exact component={InternalUser}/>
-          <Route path={[`${constNames.routeNames.internalUserDetail}/:id`]} exact component={InternalUserDetail}/>
-          <Route path={[constNames.routeNames.internalCreateUser]} exact component={InternalCreateUser}/>
-          <Route path={[`${constNames.routeNames.internalEditUser}/:id`]} exact component={InternalEditUser}/>
-          <Route component={Error404}/> 
-        </Switch>
-      </div>  
-    </Router> 
+      <App isInitiallyLogged={!!accessToken} />
+    </Router>
   </React.StrictMode>,
-  
-  document.getElementById('root')
+
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function

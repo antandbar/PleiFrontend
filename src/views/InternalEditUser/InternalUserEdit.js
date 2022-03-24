@@ -6,10 +6,11 @@ import { internalUserEditService } from './InternalUserEditService.js';
 import { layouts } from '../../components/layout';
 import { constNames } from '../../const/index.js';
 import { common } from '../../components/common';
+import { useParams } from 'react-router-dom';
 
 
 
-export default class InternalUserEdit extends Component {
+class InternalUserEdit extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props){
     super(props);
@@ -21,7 +22,7 @@ export default class InternalUserEdit extends Component {
 
   async componentDidMount() {
     // Se trae el usuarios interno seleccionado
-    const userId = parseInt(this.props.match.params.id,10);  
+    const userId = this.props.id;  
     const user = await internalUserEditService.getUser(userId);   
     this.setState({user:user});
     this.setState({person:user.person}); 
@@ -56,3 +57,12 @@ export default class InternalUserEdit extends Component {
 
   }
 }
+
+const UserDetail = () => {
+  const { id } = useParams();
+  return (
+    <InternalUserEdit id={id}/>
+  )
+}
+
+export default UserDetail;

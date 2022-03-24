@@ -6,9 +6,10 @@ import { layouts } from '../../components/layout';
 import { common } from '../../components/common';
 import { internalUserDetailService } from './InternalUserDetailService.js' 
 import { constNames } from '../../const/index.js';
+import { useParams } from 'react-router-dom';
 
 
-export default class InternalUserDetail extends Component {
+class InternalUserDetail extends Component {
   // eslint-disable-next-line no-useless-constructor
   constructor(props){
     super(props);
@@ -20,7 +21,8 @@ export default class InternalUserDetail extends Component {
 
   async componentDidMount() {
     // Se trae el usuarios interno seleccionado
-    const userId = parseInt(this.props.match.params.id,10);  
+    const userId =this.props.id;  
+    /* debugger; */
     const user = await internalUserDetailService.getUser(userId);   
     this.setState({user:user});
     this.setState({person:user.person}); 
@@ -40,3 +42,12 @@ export default class InternalUserDetail extends Component {
 
   }
 }
+
+const UserDetail = () => {
+  const { id } = useParams();
+  return(
+  <InternalUserDetail id={id}/>
+  )
+}
+
+export default UserDetail;

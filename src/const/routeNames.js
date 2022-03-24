@@ -4,6 +4,7 @@ const internalUserDetail = '/detail';
 const internalCreateUser = '/createuser';
 const internalEditUser = '/edituser';
 const testToken = '40b89ddaa5311ddc13a549e316dd5afe316a5409';
+const login = '/login';
 
 export const routeNames = {
   internalUser,
@@ -12,4 +13,5 @@ export const routeNames = {
   internalCreateUser,
   internalEditUser,
   testToken,
+  login,
 };
