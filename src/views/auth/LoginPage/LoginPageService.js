@@ -15,12 +15,12 @@ const login = async (...credencials) => {
       body: JSON.stringify(...credencials),
     });
   } catch (error) {
-    throw new Error('No he podido ir a por los usuarios');
+    throw new Error('No he podido ir a por el token');
   }
 
   // Se evalua si la respuesta fue exitosa
   if (!loginResponse.ok) {
-    throw new Error('usuarios no encontrados');
+    throw new Error('token no encontrado');
   }
 
   try {

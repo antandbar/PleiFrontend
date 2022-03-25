@@ -1,4 +1,6 @@
 import { constNames } from '../../const/index.js';
+import storage from '../../utils/storage';
+
 export class InternalUserEditService {
     // eslint-disable-next-line no-useless-constructor
     constructor(){}
@@ -12,7 +14,7 @@ export class InternalUserEditService {
       try {
         usersResponse = await fetch(`${url}${userId}`,{
           headers: {
-            Authorization: `Token ${constNames.routeNames.testToken}`,}
+            Authorization: `Token ${storage.get('auth').token}`,}
           });
       } catch (error) {
         throw new Error("No he podido ir a el usuario");
@@ -54,7 +56,7 @@ export class InternalUserEditService {
           method: "PUT",
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Token ${constNames.routeNames.testToken}`,
+            Authorization: `Token ${storage.get("auth").token}`,
           },
           body: JSON.stringify(user),
       });

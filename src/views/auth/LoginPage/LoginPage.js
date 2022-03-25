@@ -43,7 +43,7 @@ function LoginPage() {
     try {
       resetError();
       setIsLoading(true);
-      await login(credentials); 
+      await login(credentials);
       setIsLoading(false);
       onLogin();
       const from = location.state?.from?.pathname || '/';
@@ -75,15 +75,6 @@ function LoginPage() {
           value={password}
           onChange={handleChange}
         />
-
-        <input
-          type="checkbox"
-          name="remember"
-          checked={remember}
-          value="remember"
-          onChange={handleChange}
-        />
-        <label>Recordar contraseña</label>
 
         <Button
           className="loginForm-submit"

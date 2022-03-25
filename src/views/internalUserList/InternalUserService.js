@@ -1,4 +1,5 @@
 import { constNames } from '../../const/index.js';
+import storage from '../../utils/storage';
 export class InternalUserService {
     // eslint-disable-next-line no-useless-constructor
     constructor(){}
@@ -8,11 +9,10 @@ export class InternalUserService {
       const url = constNames.routeNames.internalUserExt;
       let usersResponse;
       let users;
-  
       try {
         usersResponse = await fetch(`${url}?limit=${limit}&offset=${offSet}`,{
           headers: {
-            Authorization: `Token ${constNames.routeNames.testToken}`,}
+            Authorization: `Token ${storage.get("auth").token}`,}
           });
       } catch (error) {
         throw new Error("No he podido ir a por los usuarios");

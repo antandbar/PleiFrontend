@@ -1,4 +1,5 @@
 import { constNames } from '../../const/index';
+import storage from '../../utils/storage';
 export class InternalUserCreateService {
     // eslint-disable-next-line no-useless-constructor
     constructor(){}
@@ -25,7 +26,7 @@ export class InternalUserCreateService {
           method: "POST",
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Token ${constNames.routeNames.testToken}`,
+            Authorization: `Token ${storage.get("auth").token}`,
           },
           body: JSON.stringify(user),
       });
