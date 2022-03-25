@@ -5,6 +5,7 @@ const internalCreateUser = '/createuser';
 const internalEditUser = '/edituser';
 const testToken = '40b89ddaa5311ddc13a549e316dd5afe316a5409';
 const login = '/login';
+const auth = 'http://13.38.85.64:8000/api_generate_token/';
 
 export const routeNames = {
   internalUser,
@@ -14,4 +15,5 @@ export const routeNames = {
   internalEditUser,
   testToken,
   login,
+  auth
 };

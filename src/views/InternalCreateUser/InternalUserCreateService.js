@@ -1,4 +1,4 @@
-import { constNames } from '../../const/index.js';
+import { constNames } from '../../const/index';
 export class InternalUserCreateService {
     // eslint-disable-next-line no-useless-constructor
     constructor(){}

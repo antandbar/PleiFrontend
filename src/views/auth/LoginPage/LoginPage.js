@@ -2,7 +2,7 @@ import { useState, useContext, useRef, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '../../../components/common/Button';
 import FormField from '../../../components/common/FormField';
-/* import { login } from '../service'; */
+import login from './LoginPageService';
 import AuthContext from '../context';
 
 import './LoginPage.css';
@@ -12,7 +12,7 @@ function LoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const [credentials, setCredentials] = useState({
-    email: '',
+    username: '',
     password: '',
     remember: false,
   });
@@ -24,7 +24,7 @@ function LoginPage() {
     ref.current.focus();
   }, []);
 
-  const { email, password, remember } = credentials;
+  const { username, password, remember } = credentials;
 
   const handleChange = event => {
     setCredentials(credentials => ({
@@ -43,7 +43,7 @@ function LoginPage() {
     try {
       resetError();
       setIsLoading(true);
-      /* await login(credentials); */
+      await login(credentials); 
       setIsLoading(false);
       onLogin();
       const from = location.state?.from?.pathname || '/';
@@ -59,11 +59,11 @@ function LoginPage() {
       <h1 className="loginPage-title">Log in to Plei</h1>
       <form onSubmit={handleSubmit}>
         <FormField
-          type="email"
-          name="email"
-          label="email"
+          type="text"
+          name="username"
+          label="Username"
           className="loginForm-field"
-          value={email}
+          value={username}
           onChange={handleChange}
           ref={ref}
         />
@@ -89,7 +89,7 @@ function LoginPage() {
           className="loginForm-submit"
           type="submit"
           variant="primary"
-          disabled={!email || !password || isLoading}
+          disabled={!username || !password || isLoading}
         >
           Log in
         </Button>
