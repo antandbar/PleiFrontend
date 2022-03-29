@@ -5,7 +5,7 @@ const accentColor = 'rgb(0, 187, 45)';
 const Button = styled.button`
   align-items: center;
   background-color: ${props =>
-    props.variant === 'primary' ? accentColor : 'white'};
+    props.variant === 'primary' ? accentColor : 'rgba(150, 150, 150, 0.2)'};
   border-radius: 9999px;
   border-style: solid;
   border-width: 1px;

@@ -1,16 +1,16 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Button from '../common/Button';
+import Button from '../../components/common/Button';
 
-import { logout } from '../auth/service';
 import AuthContext from './context';
+import storage from '../../utils/storage';
 
 function AuthButton({ className }) {
   const { isLogged, handleLogout: onLogout } = useContext(AuthContext);
 
   const handleLogoutClick = async () => {
-    await logout();
     onLogout();
+    storage.remove('auth');
   };
 
   return isLogged ? (

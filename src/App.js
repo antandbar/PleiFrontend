@@ -12,6 +12,7 @@ import { constNames } from './const/index.js';
 import LoginPage from './views/auth/LoginPage/LoginPage';
 import { AuthContextProvider } from './views/auth/context';
 import RequireAuth from './views/auth/RequireAuth';
+import { layouts } from './components/layout/index';
 
 function App({ isInitiallyLogged }) {
   const [isLogged, setIsLogged] = useState(isInitiallyLogged);
@@ -30,37 +31,47 @@ function App({ isInitiallyLogged }) {
         <Routes>
           <Route
             path={constNames.routeNames.internalUser}
-            element={
-              <RequireAuth>
-                <InternalUser />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path={`${constNames.routeNames.internalUserDetail}/:id`}
-            element={
-              <RequireAuth>
-                <InternalUserDetail />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path={constNames.routeNames.internalCreateUser}
-            element={
-              <RequireAuth>
-                <InternalCreateUser />
-              </RequireAuth>
-            }
-          />
-          <Route
-            path={`${constNames.routeNames.internalEditUser}/:id`}
-            element={
-              <RequireAuth>
-                <InternalEditUser />
-              </RequireAuth>
-            }
-          />
+            element={<layouts.LayoutPage />}
+          >
+            <Route
+              index
+              element={
+                <RequireAuth>
+                  <InternalUser />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path={`:id`}
+              element={
+                <RequireAuth>
+                  <InternalUserDetail />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path={constNames.routeNames.internalCreateUser}
+              element={
+                <RequireAuth>
+                  <InternalCreateUser />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path={`${constNames.routeNames.internalEditUser}/:id`}
+              element={
+                <RequireAuth>
+                  <InternalEditUser />
+                </RequireAuth>
+              }
+            />
+          </Route>
+
           <Route path={constNames.routeNames.login} element={<LoginPage />} />
+          <Route
+            path="/"
+            element={<Navigate to={constNames.routeNames.internalUser} />}
+          />
           <Route
             path="/404"
             element={
@@ -69,7 +80,6 @@ function App({ isInitiallyLogged }) {
               </RequireAuth>
             }
           />
-          <Route path="/" element={<Navigate to="/index" />} />
           <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
       </AuthContextProvider>
