@@ -20,7 +20,7 @@ function Header({ className }) {
             'header-navLink',
           )}
         >
-          Crear Data
+          {constNames.values.linkCreateData}
         </NavLink>
         <NavLink
           to={constNames.routeNames.internalUser}
@@ -30,7 +30,7 @@ function Header({ className }) {
           )}
           end
         >
-          Data Usuario Interno
+          {constNames.values.linkDataUsuarioInterno}
         </NavLink>
         <AuthButton className="header-button" />
       </nav>

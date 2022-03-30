@@ -5,7 +5,7 @@ const login = async (...credencials) => {
   const url = constNames.routeNames.auth;
   let loginResponse;
   let token;
-    /* debugger; */
+
   try {
     loginResponse = await fetch(url, {
       method: 'POST',

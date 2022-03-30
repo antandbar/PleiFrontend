@@ -66,7 +66,7 @@ function App({ isInitiallyLogged }) {
               }
             />
           </Route>
-
+          
           <Route path={constNames.routeNames.login} element={<LoginPage />} />
           <Route
             path="/"

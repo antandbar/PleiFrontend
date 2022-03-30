@@ -8,7 +8,6 @@ import storage from './utils/storage';
 import App from './App';
 
 const accessToken = storage.get('auth');
-//setAuthorizationHeader(accessToken);
 
 ReactDOM.render(
   <React.StrictMode>
