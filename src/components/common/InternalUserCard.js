@@ -25,37 +25,40 @@ export default class InternalCardUser extends Component {
   render() {
     return (
       <Card body color="secondary" outline className="card-user">
-      <CardTitle tag="h5" className="card-title">
-        <span>
-          Id: {this.props.user.id_internal} - User: Plei Super Admin
-        </span>
-      </CardTitle>
-      <CardText className="card-text">
-        <span>Blockchain:</span> {this.props?.user?.blockchain}
-      </CardText>
-      <CardText className="card-text">
-        <span>Wallet Type:</span> {this.props?.user?.wallet_type}
-      </CardText>
-      <CardText className="card-text">
-        <span>Wallet Name:</span> {this.props?.user?.wallet_name}
-      </CardText>
-      <CardText className="card-text">
-        <span>Wallet Address: </span> {this.props?.user?.wallet_address}
-      </CardText> 
+        <CardTitle tag="h5" className="card-title">
+          <span>
+            Id: {this.props.user.id_internal} 
+          </span>
+        </CardTitle>
+        <CardText className="card-text">
+          <span>Blockchain:</span> {this.props?.user?.blockchain}
+        </CardText>
+        <CardText className="card-text">
+          <span>Wallet Type:</span> {this.props?.user?.wallet_type}
+        </CardText>
+        <CardText className="card-text">
+          <span>Wallet Name:</span> {this.props?.user?.wallet_name}
+        </CardText>
+        <CardText className="card-text">
+          <span>Wallet Address: </span> {this.props?.user?.wallet_address}
+        </CardText>
+        <CardText className="card-text">
+          <span>Discord Id: </span> {this.props?.user?.discord_id}
+        </CardText>
 
-      <Button className="btn-edit" onClick={this.editUser}>
-        Editar
-      </Button>
+        <Button className="btn-edit" onClick={this.editUser}>
+          Editar
+        </Button>
 
-      <Button className="btn-delete" onClick={this.deleteUser}>
-        Eliminar
-      </Button>
+        <Button className="btn-delete" onClick={this.deleteUser}>
+          Eliminar
+        </Button>
 
-      <Button className="btn-cameback" onClick={this.cameBack}>
-        Volver
-      </Button>
-    </Card>
-/*       <Card body color="secondary" outline className="card-user">
+        <Button className="btn-cameback" onClick={this.cameBack}>
+          Volver
+        </Button>
+      </Card>
+      /*       <Card body color="secondary" outline className="card-user">
         <CardTitle tag="h5" className="card-title">
           <span>
             Id: {this.props.user.id} - User: {this.props.user.username}
