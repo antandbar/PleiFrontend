@@ -1,156 +1,193 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment } from 'react';
 import { layouts } from '../layout';
-import {
-  Form,
-  FormGroup,
-  Label,
-  Col,
-  Input,
-  Button,
-} from "reactstrap";
-import "./css/internalFormUser.css";
+import { Form, FormGroup, Label, Col, Input, Button } from 'reactstrap';
+import './css/internalFormUser.css';
 
 export default class InternalFormUser extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      blockchain: "",
-      wallet_type:"",
-      wallet_name: "",
-      wallet_address:"",
-      error:null     
-    } 
+      blockchain: '',
+      wallet_type: '',
+      wallet_name: '',
+      wallet_address: '',
+      discord_id: '',
+      error: null,
+    };
   }
-
 
   // Se seta el objeto desde el estado
   transformUser = () => {
-    return { 
-      user_id: "",
-      id_internal: "",
+    return {
+      user_id: '',
+      id_internal: '',
       blockchain: this.state.blockchain,
       wallet_type: this.state.wallet_type,
       wallet_name: this.state.wallet_name,
       wallet_address: this.state.wallet_address,
-/*         person: {
+      discord_id: this.state.discord_id,
+      /*         person: {
           tipo_user: "INT",
           wallet: this.state.wallet,
           t_wallet: this.state.t_wallet
         } */
-    }
-  }
+    };
+  };
 
   // Se llama a la función del padre
-  sendUser = (e) => {
+  sendUser = e => {
     e.preventDefault();
     this.props.setUser(this.transformUser());
-   
-   /*  window.location.href = this.props.redirec; */
-  }
-  
-  userblockchainChange = (e) => {
-    this.setState({blockchain:e.target.value});
-  }
 
-  userWalletTypeChange = (e) => {
-    this.setState({wallet_type:e.target.value});
-  }
-  userWalletNameChange = (e) => {
-    this.setState({wallet_name:e.target.value});
-  }
-  userWalletAddressChange = (e) => {
-    this.setState({wallet_address:e.target.value});
-  }
+    /*  window.location.href = this.props.redirec; */
+  };
 
-  pswChange = (e) => {
-    this.setState({password:e.target.value});
-  }
+  userblockchainChange = e => {
+    this.setState({ blockchain: e.target.value });
+  };
 
-  emailChange = (e) => {
-    this.setState({email:e.target.value});
-  }
+  userWalletTypeChange = e => {
+    this.setState({ wallet_type: e.target.value });
+  };
+  userWalletNameChange = e => {
+    this.setState({ wallet_name: e.target.value });
+  };
+  userWalletAddressChange = e => {
+    this.setState({ wallet_address: e.target.value });
+  };
+  userDiscordIdChange = e => {
+    this.setState({ discord_id: e.target.value });
+  };
+  pswChange = e => {
+    this.setState({ password: e.target.value });
+  };
 
-  walletChange = (e) => {
-    this.setState({wallet:e.target.value});
-  }
-  tWalletChange = (e) => {
-    this.setState({t_wallet:e.target.value});
+  emailChange = e => {
+    this.setState({ email: e.target.value });
+  };
+
+  walletChange = e => {
+    this.setState({ wallet: e.target.value });
+  };
+  tWalletChange = e => {
+    this.setState({ t_wallet: e.target.value });
     // Se actualiza la propiedad t_wallet cada check
-   if(this.props.person?.t_wallet != null){
-       this.props.person.t_wallet = e.target.value;
-    } 
-  }
+    if (this.props.person?.t_wallet != null) {
+      this.props.person.t_wallet = e.target.value;
+    }
+  };
 
   render() {
-    
-    // Se evalua si se guardo correctamente     
-    if(this.props.error === false) {
+    // Se evalua si se guardo correctamente
+    if (this.props.error === false) {
       window.location.href = this.props.redirec;
-    }   
+    }
     // Se crea el objeto alert para manejar usuario
     function IsAlert(error) {
       const errorAlert = error.isError;
-      if(errorAlert === null || !errorAlert) {
-        return <Fragment></Fragment>
+      if (errorAlert === null || !errorAlert) {
+        return <Fragment></Fragment>;
       }
-      return <layouts.Alert error={errorAlert}/>
+      return <layouts.Alert error={errorAlert} />;
     }
     return (
       <Fragment>
-      <Form className="form-internal-user" onSubmit={this.sendUser}>
-      <IsAlert isError= {this.props.error}/>
-      <FormGroup row>
-          <Label for="User" sm={2}>
-            User
-          </Label>
-          <Col sm={10}>
-            <Input id="User" name="User" value={"Plei Super Admin"} readOnly/>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="blockchain" sm={2}>
-            Blockchain
-          </Label>
-          <Col sm={10}>
-            <Input id="blockchain" name="blockchain" placeholder="blockchain" 
-            defaultValue= {this.props.user?.blockchain?this.props.user?.blockchain:""} onChange={this.userblockchainChange}/>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="wallet_type" sm={2}>
-            Wallet Type
-          </Label>
-          <Col sm={10}>
-            <Input id="wallet_type" name="wallet_type" placeholder="wallet Type" 
-            defaultValue= {this.props.user?.wallet_type?this.props.user?.wallet_type:""} onChange={this.userWalletTypeChange}/>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="wallet_name" sm={2}>
-            Wallet Name
-          </Label>
-          <Col sm={10}>
-            <Input id="wallet_name" name="wallet_name" placeholder="wallet Name" 
-            defaultValue= {this.props.user?.wallet_name?this.props.user?.wallet_name:""} onChange={this.userWalletNameChange}/>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="wallet_address" sm={2}>
-          wallet Address
-          </Label>
-          <Col sm={10}>
-            <Input id="wallet_address" name="wallet_address" placeholder="wallet Address" 
-            defaultValue= {this.props.user?.wallet_address?this.props.user?.wallet_address:""} onChange={this.userWalletAddressChange}/>
-          </Col>
-        </FormGroup>
-        <FormGroup check row>
-          <Col sm={{offset: 2,size: 10,}}>
-            <Button className="submit">Submit</Button>
-          </Col>
-        </FormGroup>
-      </Form>
-    </Fragment>
-/*       <Fragment>
+        <Form className="form-internal-user" onSubmit={this.sendUser}>
+          <IsAlert isError={this.props.error} />
+          <FormGroup row>
+            <Label for="blockchain" sm={2}>
+              Blockchain
+            </Label>
+            <Col sm={10}>
+              <Input
+                id="blockchain"
+                name="blockchain"
+                placeholder="blockchain"
+                defaultValue={
+                  this.props.user?.blockchain ? this.props.user?.blockchain : ''
+                }
+                onChange={this.userblockchainChange}
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="wallet_type" sm={2}>
+              Wallet Type
+            </Label>
+            <Col sm={10}>
+              <Input
+                id="wallet_type"
+                name="wallet_type"
+                placeholder="wallet Type"
+                defaultValue={
+                  this.props.user?.wallet_type
+                    ? this.props.user?.wallet_type
+                    : ''
+                }
+                onChange={this.userWalletTypeChange}
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="wallet_name" sm={2}>
+              Wallet Name
+            </Label>
+            <Col sm={10}>
+              <Input
+                id="wallet_name"
+                name="wallet_name"
+                placeholder="wallet Name"
+                defaultValue={
+                  this.props.user?.wallet_name
+                    ? this.props.user?.wallet_name
+                    : ''
+                }
+                onChange={this.userWalletNameChange}
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="wallet_address" sm={2}>
+              wallet Address
+            </Label>
+            <Col sm={10}>
+              <Input
+                id="wallet_address"
+                name="wallet_address"
+                placeholder="wallet Address"
+                defaultValue={
+                  this.props.user?.wallet_address
+                    ? this.props.user?.wallet_address
+                    : ''
+                }
+                onChange={this.userWalletAddressChange}
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup row>
+            <Label for="discord_id" sm={2}>
+              Discord Id
+            </Label>
+            <Col sm={10}>
+              <Input
+                id="discord_id"
+                name="discord_id"
+                placeholder="Discord Id"
+                defaultValue={
+                  this.props.user?.discord_id ? this.props.user?.discord_id : ''
+                }
+                onChange={this.userDiscordIdChange}
+              />
+            </Col>
+          </FormGroup>
+          <FormGroup check row>
+            <Col sm={{ offset: 2, size: 10 }}>
+              <Button className="submit">Submit</Button>
+            </Col>
+          </FormGroup>
+        </Form>
+      </Fragment>
+      /*       <Fragment>
         <Form className="form-internal-user" onSubmit={this.sendUser}>
         <IsAlert isError= {this.props.error}/>
           <FormGroup row>
