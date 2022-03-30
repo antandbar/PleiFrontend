@@ -169,7 +169,7 @@ export default class InternalFormUser extends Component {
               Discord Id
             </Label>
             <Col sm={10}>
-              <Input
+              <Input type='number'
                 id="discord_id"
                 name="discord_id"
                 placeholder="Discord Id"
