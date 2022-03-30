@@ -44,7 +44,7 @@ export class InternalUserDetailService {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Token ${constNames.routeNames.testToken}`,
+          Authorization: `Token ${storage.get('auth').token}`,
         },
       });
     } catch (error) {
