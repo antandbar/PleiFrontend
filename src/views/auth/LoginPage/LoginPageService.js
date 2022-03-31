@@ -20,7 +20,7 @@ const login = async (...credencials) => {
 
   // Se evalua si la respuesta fue exitosa
   if (!loginResponse.ok) {
-    throw new Error('token no encontrado');
+    throw new Error('El usuario/password no es correcto');
   }
 
   try {
